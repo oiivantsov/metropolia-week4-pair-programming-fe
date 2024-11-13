@@ -1,4 +1,9 @@
-function Tour({ image, date, title, info, location, duration, cost }) {
+function Tour({ image, date, title, info, location, duration, cost, id, onDelete }) {
+  
+  const handleDelete = () => {
+    onDelete(id); // Pass the item's ID to the parent component for deletion
+  };
+  
   return (
     <article className="tour-card">
       <div className="tour-img-container">
@@ -21,6 +26,9 @@ function Tour({ image, date, title, info, location, duration, cost }) {
           <p>{duration} days</p>
         </div>
       </div>
+      <button onClick={handleDelete} className="delete-button">
+        Delete
+      </button>
     </article>
   );
 }
